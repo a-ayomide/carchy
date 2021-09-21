@@ -3,6 +3,7 @@ import styled from "styled-components";
 import tw from "twin.macro";
 import BlobImg from "../../../assets/images/blob.svg"
 import mcClarenCarImg from "../../../assets/images/mclaren-orange-big.png"
+import { Button } from "../../components/buttons";
 import { SCREENS } from "../../components/responsive";
 
 const TopSectionContainer = styled.div`
@@ -99,6 +100,10 @@ const StandaloneCar = styled.div`
     }
 `;
 
+const ButtonContainer = styled.div`
+    ${tw` flex flex-wrap mt-6 md:gap-5 gap-2`}
+`;
+
 export function TopSection(){
     return ( <TopSectionContainer>
         <LeftContainer>
@@ -109,6 +114,10 @@ export function TopSection(){
                 Always choose the best car from our local stores or order it remotely at the 
                 best price for you and get the best quality cars for as long as you like
             </Description>
+            <ButtonContainer>
+                <Button theme="filled" text="Book your Ride"/>
+                <Button text="Sell your car"/>
+            </ButtonContainer>
         </LeftContainer>
         <RightContainer>
             <BlobContainer>
