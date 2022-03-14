@@ -7,7 +7,7 @@ import { Button } from "../../components/buttons";
 import { SCREENS } from "../../components/responsive";
 
 const TopSectionContainer = styled.div`
-    min-height: 100vh;
+min-height: 30em;
     margin-top: 6em;
     ${tw` w-full max-w-screen-xl flex justify-between px-3 lg:px-12 `};
 `;

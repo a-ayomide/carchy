@@ -1,16 +1,21 @@
 import { faCalendarAlt, faLocationArrow } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import tw from "twin.macro";
 import { Button } from "../buttons";
+import { Marginer } from "../marginer";
+import Calendar from "react-calendar"
+import 'react-calendar/dist/Calendar.css';
 
 const CardContainer = styled.div`
-    ${tw` flex items-center justify-center mx-auto py-1 px-2 md:py-2 md:px-6 shadow-lg rounded-md bg-white `}
+    min-height: 4.3em;
+    box-shadow: 0 1.3px 12px -3px rgba(0, 0, 0, 0.4);
+    ${tw` flex items-center justify-center mx-auto py-1 px-2 md:py-2 md:px-9 rounded-md bg-white `}
 `;
 
 const ItemContainer = styled.div`
-    ${tw` flex `}
+    ${tw` flex relative `}
 `;
 
 const Icon = styled.span`
@@ -18,22 +23,37 @@ const Icon = styled.span`
 `;
 
 const ItemText = styled.span`
-    ${tw` text-gray-600 text-xs md:text-sm`}
+    ${tw` text-gray-600 text-xs md:text-sm cursor-pointer`}
 `;
 
 const LineSeparator = styled.span`
     width: 2px;
-    height: 45%;
     ${tw`bg-gray-300 mx-2 md:mx-5`}
 
 `;
+
+const DateCalendar = styled(Calendar)`
+    position: absolute;
+    top: 2em;
+    left: -2em;
+`;
+
+
 export function BookCard(){
+    const [startDate, setstartDate] = useState(new Date ());
+    const [isStartCalendarOpen, setIsStartCalendarOpen] = useState(false);
+
+    const toggleStartDateCalendar = () => {
+        setIsStartCalendarOpen (!isStartCalendarOpen);
+    }
+
     return <CardContainer>
         <ItemContainer>
             <Icon>
                 <FontAwesomeIcon icon={faCalendarAlt} />
             </Icon>
-            <ItemText>Pick-Up Date</ItemText>
+            <ItemText onClick={toggleStartDateCalendar}>Pick-Up Date</ItemText>
+            {isStartCalendarOpen && <DateCalendar value={startDate} onChange={setstartDate}/> }
             <LineSeparator/>
             <Icon>
                 <FontAwesomeIcon icon={faCalendarAlt} />
@@ -44,7 +64,8 @@ export function BookCard(){
                 <FontAwesomeIcon icon={faLocationArrow} />
             </Icon>
             <ItemText>Choose Your Location</ItemText>
-            <Button theme="filled" text="Book your Ride"/>
         </ItemContainer>
+        <Marginer direction="horizontal" margin="2rem" />
+        <Button theme="filled" text="Book your Ride"/>
     </CardContainer>
 }
