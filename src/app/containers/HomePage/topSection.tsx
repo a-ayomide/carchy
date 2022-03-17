@@ -1,133 +1,131 @@
 import React from "react";
 import styled from "styled-components";
 import tw from "twin.macro";
-import BlobImg from "../../../assets/images/blob.svg"
-import mcClarenCarImg from "../../../assets/images/mclaren-orange-big.png"
+import BlobImg from "../../../assets/images/blob.svg";
+import mcClarenCarImg from "../../../assets/images/mclaren-orange-big.png";
 import { Button } from "../../components/buttons";
 import { SCREENS } from "../../components/responsive";
 
 const TopSectionContainer = styled.div`
-min-height: 30em;
-    margin-top: 6em;
-    ${tw` w-full max-w-screen-xl flex justify-between px-3 lg:px-12 `};
+  margin-top: 6em;
+  ${tw` w-full max-w-screen-2xl flex justify-between px-3 lg:px-12 `};
 `;
 
 const LeftContainer = styled.div`
-    ${tw` w-1/2 flex flex-col `}
+  ${tw` w-1/2 flex flex-col h-full`}
 `;
 
 const RightContainer = styled.div`
-    ${tw` w-1/2 flex flex-col relative mt-20`}
+  ${tw` w-1/2 flex flex-col relative mt-20`}
 `;
 
 const Slogan = styled.h1`
-    ${tw` font-bold text-2xl xl:text-6xl sm:text-3xl md:text-5xl lg:font-black md:font-extrabold text-black mb-4 sm:leading-snug md:leading-normal lg:leading-relaxed`}
+  ${tw` font-bold text-2xl xl:text-6xl sm:text-3xl md:text-5xl lg:font-black md:font-extrabold text-black mb-4 sm:leading-snug md:leading-normal lg:leading-relaxed`}
 `;
 
 const Description = styled.p`
-    ${tw` text-xs lg:text-sm xl:text-lg sm:max-h-full overflow-x-hidden max-h-24 text-gray-500 `}
+  ${tw` text-xs lg:text-sm xl:text-lg sm:max-h-full overflow-hidden max-h-24 text-gray-500 `}
 `;
 
 const BlobContainer = styled.div`
-    width: 20em;
-    height: 10em;
-    position: absolute;
-    right: -5em;
-    top: -9em;
-    z-index: -1;
-    transform: rotate(-30deg);
+  width: 20em;
+  height: 10em;
+  position: absolute;
+  right: -5em;
+  top: -9em;
+  z-index: -1;
+  transform: rotate(-30deg);
 
-    img {
-        width: 100%
-        height: auto
-        max-height: max-content;
-    }
+  img {
+    width: 100%;
+    height: auto;
+    max-height: max-content;
+  }
 
-    @media (min-width:  ${SCREENS.sm}) {
-        width: 40em;
-        max-height: 10em;
-        right: -9em;
-        top: -16em;
-        transform: rotate(-25deg);
-    }
+  @media (min-width: ${SCREENS.sm}) {
+    width: 40em;
+    max-height: 10em;
+    right: -9em;
+    top: -16em;
+    transform: rotate(-25deg);
+  }
 
-    @media (min-width:  ${SCREENS.lg}) {
-        width: 50em;
-        max-height: 30em;
-        right: -7em;
-        top: -15em;
-        transform: rotate(-25deg);
-    }
+  @media (min-width: ${SCREENS.lg}) {
+    width: 50em;
+    max-height: 30em;
+    right: -7em;
+    top: -15em;
+    transform: rotate(-25deg);
+  }
 
-    @media (min-width:  ${SCREENS.xl}) {
-        width: 70em;
-        max-height: 10em;
-        right: -18em;
-        top: -25em;
-        transform: rotate(-25deg);
-    }
+  @media (min-width: ${SCREENS.xl}) {
+    width: 70em;
+    max-height: 10em;
+    right: -18em;
+    top: -25em;
+    transform: rotate(-25deg);
+  }
 `;
 
 const StandaloneCar = styled.div`
+  width: auto;
+  height: 10em;
+  position: absolute;
+  right: -6em;
+  top: -5em;
+
+  img {
     width: auto;
-    height: 10em;
-    position: absolute;
+    height: 100%;
+    max-width: fit-content;
+  }
+
+  @media (min-width: ${SCREENS.sm}) {
+    height: 16em;
     right: -6em;
-    top: -5em;
+    top: -6em;
+  }
 
-    img {
-        width: auto;
-        height: 100%
-        max-width: fit-content;
-    }
+  @media (min-width: ${SCREENS.lg}) {
+    height: 21em;
+    right: -13em;
+    top: -6em;
+  }
 
-    @media (min-width:  ${SCREENS.sm}) {
-        height: 16em;
-        right: -6em;
-        top: -6em;
-    }
-
-    @media (min-width:  ${SCREENS.lg}) {
-        height: 21em;
-        right: -13em;
-        top: -6em;
-    }
-
-    @media (min-width:  ${SCREENS.xl}) {
-        height: 26em;
-        right: -6em;
-        top: -9em;
-    }
+  @media (min-width: ${SCREENS.xl}) {
+    height: 26em;
+    right: -6em;
+    top: -9em;
+  }
 `;
 
 const ButtonContainer = styled.div`
-    ${tw` flex flex-wrap mt-6 md:gap-5 gap-2`}
+  ${tw` flex flex-wrap mt-6 md:gap-5 gap-2`}
 `;
 
-export function TopSection(){
-    return ( <TopSectionContainer>
-        <LeftContainer>
-            <Slogan>
-                Rent The Best Qualty Cars With Us
-            </Slogan>
-            <Description>
-                Always choose the best car from our local stores or order it remotely at the 
-                best price for you and get the best quality cars for as long as you like
-            </Description>
-            <ButtonContainer>
-                <Button theme="filled" text="Book your Ride"/>
-                <Button text="Sell your car"/>
-            </ButtonContainer>
-        </LeftContainer>
-        <RightContainer>
-            <BlobContainer>
-                <img src={BlobImg} alt="blob" />
-            </BlobContainer>
-            <StandaloneCar>
-                <img src={mcClarenCarImg} alt="car" />
-            </StandaloneCar>
-        </RightContainer>
+export function TopSection() {
+  return (
+    <TopSectionContainer>
+      <LeftContainer>
+        <Slogan>Rent The Best Qualty Cars With Us</Slogan>
+        <Description>
+          Always choose the best car from our local stores or order it remotely
+          at the best price for you and get the best quality cars for as long as
+          you like
+        </Description>
+        <ButtonContainer>
+          <Button theme="filled" text="Book your Ride" />
+          <Button text="Sell your car" />
+        </ButtonContainer>
+      </LeftContainer>
+      <RightContainer>
+        <BlobContainer>
+          <img src={BlobImg} alt="blob" />
+        </BlobContainer>
+        <StandaloneCar>
+          <img src={mcClarenCarImg} alt="car" />
+        </StandaloneCar>
+      </RightContainer>
     </TopSectionContainer>
-
-    )
+  );
 }

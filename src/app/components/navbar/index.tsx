@@ -5,10 +5,10 @@ import { Logo } from "../logo";
 import { NavItems } from "./navitems";
 
 const NavBarContainer = styled.div`
-    min-height: 60px;
-    ${tw`
+  min-height: 60px;
+  ${tw`
         w-full
-        max-w-screen-xl
+        max-w-screen-2xl
         flex
         flex-row
         items-center
@@ -20,10 +20,12 @@ const NavBarContainer = styled.div`
 const LogoContainer = styled.div``;
 
 export function Navbar() {
-    return <NavBarContainer>
-        <LogoContainer>
-            <Logo />
-        </LogoContainer>
-        <NavItems />
+  return (
+    <NavBarContainer>
+      <LogoContainer>
+        <Logo />
+      </LogoContainer>
+      <NavItems />
     </NavBarContainer>
+  );
 }

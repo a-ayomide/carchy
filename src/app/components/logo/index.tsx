@@ -10,7 +10,7 @@ const LogoContainer = styled.div`
 `;
 
 const LogoText = styled.div`
-    ${tw` text-xl md:text-2xl font-bold text-gray-500 m-1 `};
+    ${tw` text-xl md:text-2xl font-bold text-black m-1 `};
 `
 
 const Image =  styled.div`
