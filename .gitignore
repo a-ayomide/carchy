@@ -9,6 +9,8 @@
 dist/
 .env
 
+.package-lock.json
+
 
 
 # testing

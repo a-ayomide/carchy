@@ -19,7 +19,7 @@ const CardWrapper = styled.div`
 const CardContainer = styled.div`
   min-height: 4.3em;
   box-shadow: 0 1.3px 12px -3px rgba(0, 0, 0, 0.4);
-  ${tw` flex items-center justify-center mx-auto py-1 px-2 md:py-2 md:px-9 rounded-md bg-white `}
+  ${tw` flex items-center justify-center mx-auto py-1 px-2 md:py-2 md:px-9 rounded-md bg-white invisible md:visible`}
 `;
 
 const ItemContainer = styled.div`
@@ -46,11 +46,17 @@ const DateCalendar = styled(Calendar)`
 `;
 
 export function BookCard() {
-  const [startDate, setstartDate] = useState(new Date());
+  const [startDate, setStartDate] = useState(new Date());
+  const [returnDate, setReturnDate] = useState(new Date());
   const [isStartCalendarOpen, setIsStartCalendarOpen] = useState(false);
+  const [isReturnCalendarOpen, setIsReturnCalendarOpen] = useState(false);
 
   const toggleStartDateCalendar = () => {
     setIsStartCalendarOpen(!isStartCalendarOpen);
+  };
+
+  const toggleReturnDateCalendar = () => {
+    setIsReturnCalendarOpen(!isReturnCalendarOpen);
   };
 
   return (
@@ -62,13 +68,16 @@ export function BookCard() {
           </Icon>
           <ItemText onClick={toggleStartDateCalendar}>Pick-Up Date</ItemText>
           {isStartCalendarOpen && (
-            <DateCalendar value={startDate} onChange={setstartDate} />
+            <DateCalendar value={startDate} onChange={setStartDate} />
           )}
           <LineSeparator />
           <Icon>
             <FontAwesomeIcon icon={faCalendarAlt} />
           </Icon>
-          <ItemText>Return Date</ItemText>
+          <ItemText onClick={toggleReturnDateCalendar}>Return Date</ItemText>
+          {isReturnCalendarOpen && (
+            <DateCalendar value={returnDate} onChange={setReturnDate} />
+          )}
           <LineSeparator />
           <Icon>
             <FontAwesomeIcon icon={faLocationArrow} />

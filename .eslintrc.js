@@ -5,29 +5,29 @@ module.exports = {
   },
   settings: {
     react: {
-      pragma: "React",
-      version: "detect",
+      pragma: 'React',
+      version: 'detect',
     },
   },
-  extends: ["eslint:recommended", "plugin:react/recommended"],
-  parser: "babel-eslint",
+  extends: ['eslint:recommended', 'plugin:react/recommended'],
+  parser: 'babel-eslint',
   globals: {
-    Atomics: "readonly",
-    SharedArrayBuffer: "readonly",
+    Atomics: 'readonly',
+    SharedArrayBuffer: 'readonly',
   },
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
     },
     ecmaVersion: 2018,
-    sourceType: "module",
+    sourceType: 'module',
   },
-  plugins: ["react"],
+  plugins: ['react'],
   rules: {
-    indent: ["error", 2],
-    "linebreak-style": ["error", "unix"],
-    quotes: ["error", "double"],
-    semi: ["error", "always"],
-    "no-console": 1,
+    indent: ['error', 2],
+    'linebreak-style': ['error', 'unix'],
+    quotes: ['error', 'double'],
+    semi: ['error', 'always'],
+    'no-console': 1,
   },
 };
